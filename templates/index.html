@@ -32,7 +32,7 @@
             border-radius: 8px;
             overflow: hidden;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            width: 100%; 
+            width: 100%;
             margin: 15px;
             transition: transform 0.2s ease;
         }
@@ -63,24 +63,24 @@
         /* Responsive Design - Media Queries */
         @media (min-width: 576px) {
             .manhwa-card {
-                width: 45%; 
+                width: 45%;
             }
         }
 
         @media (min-width: 768px) {
             .manhwa-card {
-                width: 30%; 
+                width: 30%;
             }
         }
 
         /* Lazy Loading Placeholder */
         .lazy-load {
             filter: blur(5px);
-            transition: filter 0.5s ease; 
+            transition: filter 0.5s ease;
         }
 
         .lazy-load.loaded {
-            filter: blur(0px); 
+            filter: blur(0px);
         }
     </style>
 </head>
@@ -88,7 +88,7 @@
     <h1>Best Fantasy Manhwa</h1>
 
     <div class="search-container">
-        <form method="POST" class="form-inline"> 
+        <form method="POST" class="form-inline">
             <input type="text" name="search" class="form-control mr-2" placeholder="Search by title or genre">
             <button type="submit" class="btn btn-success">Search</button>
         </form>
@@ -97,11 +97,11 @@
     <div class="manhwa-container">
         {% for manhwa in manhwa_list %}
         <div class="manhwa-card">
-            <img src="{{ url_for('static', filename=manhwa.image_url) }}" alt="{{ manhwa.title }}" class="lazy-load" data-src="{{ url_for('static', filename=manhwa.image_url) }}"> 
+            <img src="{{ manhwa.image_url }}" alt="{{ manhwa.title }}" class="lazy-load" data-src="{{ manhwa.image_url }}">
             <div class="card-body">
-                <h2>{{ manhwa.title }}</h2> 
-                <p><strong>Genre:</strong> {{ manhwa.genre }}</p> 
-                <p>{{ manhwa.description }}</p> 
+                <h2>{{ manhwa.title }}</h2>
+                <p><strong>Genre:</strong> {{ manhwa.genre }}</p>
+                <p>{{ manhwa.description }}</p>
             </div>
         </div>
         {% endfor %}
